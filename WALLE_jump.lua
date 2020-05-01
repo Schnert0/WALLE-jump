@@ -33,11 +33,6 @@ while(true) do
 	
 	if(input.select and not prevInput.select)then -- has the player pressed the jump button?
 		slope = memory.readbyte(onSlope)
-		if(memory.readdword(zPos) > 0x8000)then -- prevents player from spamming jump into a wall / door and climbing it
-			slope = 0
-		end
-		
-
 		if((memory.readdword(zVel) == 0 and slope == 1) or slope == 2)then -- is the on flat ground or on a slope?
 			canJump = true
 		end
